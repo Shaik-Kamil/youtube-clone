@@ -1,0 +1,21 @@
+As a user, I should see the Main Page which contains search input box and a select section of trending videos.
+As a User the trending videos are clickable (can add hover to this section later on when/ if we have time)
+As a user, I should be able t0 use the search input box and get results displayed along with specific search input.
+App.Js is the home page, we'll use react router to navigate to the search input box and display results of said search.
+trending videos section will be another section that will navigable from the main page.
+As a user, I should be able to comment on videos 
+As a user, I should be able to share link of video to other users.
+As a user, I should be able to see an 404: error Page in the event there's an error. this page should be a modal, it should easy to exit out of to search for other videos
+in the About page, There should be a navigation bar showing, A description of the project and bios of people working on the project.
+For home, It should have a path ('/') and a navigation bar, search bar and a list of to appear. Search input should be cleared upon submit
+Each video should have a clickable thumbnail and a tile Users can interact with. The specific video clicked will bring the user to a different page.
+As a user, I should be able to see 'individual view'('/videos/:id')this page should only have a navigation bar and a video view. It should have a minimum playable video
+
+
+CODE QUALITY:
+
+HAVE TO USE JSX 
+HOOKS (USESTATE, USEEFFECT,USENAVIGATE,)
+USE CREATE REACT APP BUILD
+FETCH TO HANDLE API CALLS 
+USE REACT ROUTER DOM TO CREATE DIFFERENT VIEWS
