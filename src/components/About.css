@@ -1,9 +1,6 @@
-main{
-    background: linear-gradient(360deg, rgb(255, 254, 254) 20%, red 80%);
-}
-
 #aboutSection{
     text-align: center;
+     background: linear-gradient(360deg, rgb(255, 254, 254) 20%, red 80%);
 }
 
 #abouts{
