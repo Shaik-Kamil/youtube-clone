@@ -1,0 +1,30 @@
+#aboutSection{
+    text-align: center;
+     background: linear-gradient(360deg, rgb(255, 254, 254) 20%, red 80%);
+}
+
+#abouts{
+    height: 200px;
+    border-radius: 10%;
+}
+
+
+.footer{
+    background-color: red;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 20px;
+    padding-right: 24px;
+    box-shadow: 2px 2px 3px;
+    justify-content: space-around;
+    box-shadow: 0px -5px 8px -4px black
+}
+
+.footer a {
+    color: white;
+    text-shadow: 2px 2px 4px gray;
+    text-decoration: none;
+    margin-right: 20px;
+}
