@@ -1,0 +1,21 @@
+.NavBar{
+    background-color: brown;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 20px;
+    padding-right: 24px;
+   
+}
+
+.NavBar a {
+    color: white;
+    text-shadow: 2px 2px 4px gray;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.NavBar img{
+    height: 50px
+}
