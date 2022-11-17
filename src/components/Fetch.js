@@ -13,8 +13,12 @@ export function ErrorMessage() {
 let key = process.env.REACT_APP_API_KEY;
 export function showApi() {
   return fetch(
-    // `https://www.googleapis.com/youtube/v3/search?key=${key}&q=arianegrande&type=video&part=snippet`
-    // `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=25&key=${key}`
-    `https://www.googleapis.com/youtube/v3/search?key=${key}&q=Mostpopular&type=video&part=snippet`
+    `https://www.googleapis.com/youtube/v3/search?key=${key}&q=trending&type=video&part=snippet`
+  ).then((res) => res.json());
+}
+
+export function searchVideo(searchInput) {
+  return fetch(
+    `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${searchInput}&type=video&part=snippet`
   ).then((res) => res.json());
 }
