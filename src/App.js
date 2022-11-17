@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import Videos from './components/Videos';
 import About from './components/About';
+// import Search from './components/Search'
 function App() {
   return (
     <Router>
