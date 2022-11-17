@@ -38,7 +38,9 @@ export default function Home() {
                 alt={e.snippet.description}
               />
             </Link>
-            <p>{e.snippet.title}</p>
+            <Link to={`/video/${e.video.id}`}>
+              <p>{e.snippet.title}</p>{' '}
+            </Link>
           </section>
         );
       })}
