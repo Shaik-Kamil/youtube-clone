@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { showApi } from './Fetch';
-// import Search from './Search';
+import Search from './Search';
 import './Home.css';
 
 export default function Home() {
@@ -28,13 +28,13 @@ export default function Home() {
 
   return (
     <div>
-      {/* <Search /> */}
+      <Search />
       {data.map((e) => {
         return (
           <section>
             <Link to={`/video/${e.id.videoId}`}>
               <img
-                src={e.snippet.thumnails.high.url}
+                src={e.snippet.thumbnails.high.url}
                 alt={e.snippet.description}
               />
             </Link>
