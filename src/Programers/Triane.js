@@ -18,7 +18,7 @@ export default function Triane() {
        Return
       </Link></li>
       <footer className="footer">
-      Connect with Us!
+      Connect with Me!
       <a href="https://github.com/TrianePeart">Triane's GitHub</a>
         <a href="www.linkedin.com/in/trianepeart">Triane's linkedin</a>
       </footer>
