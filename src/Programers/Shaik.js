@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Shaik() {
   return (
       <main>
+      <section className='shaik'>
       <div id="aboutSection">
         <h2 id="Shaik">Shaik Kamil</h2>
         <img
@@ -32,9 +33,12 @@ export default function Shaik() {
           industries while successfully exceeding expectations.
         </p>
       </div>
+      </section>
+      <div>
       <li className='return'> <Link to='/About'>
        Return
       </Link></li>
+      </div>
       <footer className="footer">
         Connect with Us!
         <a href="https://github.com/Shaik-Kamil">Shaik's GitHub</a>
