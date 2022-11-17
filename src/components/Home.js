@@ -11,7 +11,7 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   //! api result displays properly when console logged
-  console.log(showApi());
+  // console.log(showApi());
 
   useEffect((e) => {
     showApi()
