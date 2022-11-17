@@ -1,6 +1,7 @@
 #aboutSection {
   text-align: center;
-  background: linear-gradient(360deg, rgb(255, 254, 254) 20%, red 80%);
+  background: white;
+  margin-top: 2px
 }
 
 #abouts {
@@ -10,15 +11,15 @@
 
 .footer {
   background-color: red;
-  height: 20px;
   display: flex;
   align-items: center;
   font-size: 18px;
   padding: 20px;
-  padding-right: 24px;
-  box-shadow: 2px 2px 3px;
   justify-content: space-around;
-  box-shadow: 0px -5px 8px -4px black;
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%
 }
 
 .footer a {
@@ -27,3 +28,22 @@
   text-decoration: none;
   margin-right: 20px;
 }
+
+h1 {
+  margin: 0;
+}
+
+li{
+  list-style: none;
+  position:absolute;
+  bottom: 70px;
+}
+
+li a{
+  color:black
+}
+
+li a:hover{
+  color: blue
+}
+
