@@ -1,19 +1,21 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { searchVideo } from './Fetch';
+import Videos from './Videos';
 
 let key = process.env.REACT_APP_API_KEY;
 export default function Search() {
   const [title, setTitle] = useState('');
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(false);
-
+  let { id } = useParams();
   function searchForm(searchInput) {
     fetch(
       `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${searchInput}&type=video&part=snippet`
     )
       .then((res) => res.json())
       .then((res) => {
-        setVideos(res);
+        setVideos(res.items);
       })
       .catch((err) => {
         console.log(err);
@@ -41,7 +43,7 @@ export default function Search() {
             type="text"
             name="search-Input"
             onChange={handleChange}
-            // value={title}
+            value={title}
           />
           <input type="submit" value="submit" />
         </label>
