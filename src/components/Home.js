@@ -32,14 +32,14 @@ export default function Home() {
       {data.map((e) => {
         return (
           <section>
-            <Link to={`/video/${e.id.videoId}`}>
+            <Link to={`/video/${e.id}`}>
               <img
                 src={e.snippet.thumbnails.high.url}
                 alt={e.snippet.description}
               />
             </Link>
-            <Link to={`/video/${e.video.id}`}>
-              <p>{e.snippet.title}</p>{' '}
+            <Link to={`/video/${e.id}`}>
+              <p>{e.snippet.title}</p>
             </Link>
           </section>
         );

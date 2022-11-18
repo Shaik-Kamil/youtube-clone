@@ -41,11 +41,9 @@ export default function Search() {
             type="text"
             name="search-Input"
             onChange={handleChange}
-            value={title}
-          ></input>
-          <input type="submit" value="submit">
-            submit
-          </input>
+            // value={title}
+          />
+          <input type="submit" value="submit" />
         </label>
       </form>
     </section>
