@@ -1,14 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { searchVideo } from './Fetch';
-import Videos from './Videos';
+import Video from './Video';
+import YouTube from 'react-youtube';
 
 let key = process.env.REACT_APP_API_KEY;
 export default function Search() {
   const [title, setTitle] = useState('');
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(false);
+  const [data, setData] = useState([]);
   let { id } = useParams();
+
+  let result = JSON.parse(window.localStorage.getItem(data));
+
+  useEffect((e) => {
+    if (result) {
+      setData(result.items);
+      // console.log('i exist');
+    } else {
+      searchVideo()
+        .then((res) => {
+          window.localStorage.setItem(data, JSON.stringify(data));
+          setData(res.items);
+
+          // console.log(`i don't exist`);
+          // console.log(setData(res.items));
+          setError(false);
+        })
+        .catch((err) => {
+          setData([]);
+          setError(true);
+        });
+    }
+  }, []);
   function searchForm(searchInput) {
     fetch(
       `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${searchInput}&type=video&part=snippet`
@@ -46,6 +71,7 @@ export default function Search() {
             value={title}
           />
           <input type="submit" value="submit" />
+          {/* <Video /> */}
         </label>
       </form>
     </section>
