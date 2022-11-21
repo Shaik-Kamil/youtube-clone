@@ -36,23 +36,25 @@ export default function SearchBar({ setVideos }) {
 
   return (
     <section>
-      <label>
-        Enter search here
-        <input
-          type="text"
-          name="search-Input"
-          // onChange={handleChange}
-          value={title}
-          onChange={handleSubmit}
-        ></input>
-      </label>
-      <button
-        type="submit"
-        value="submit"
-        onClick={() => searchVideo(setTitle, setVideos)}
-      >
-        Search
-      </button>
+      <form>
+        <label>
+          Enter search here
+          <input
+            type="text"
+            name="search-Input"
+            // onChange={handleChange}
+            value={title}
+            onChange={handleSubmit}
+          ></input>
+        </label>
+        <button
+          type="submit"
+          value="submit"
+          onClick={() => searchVideo(setTitle, setVideos)}
+        >
+          Search
+        </button>
+      </form>
     </section>
   );
 }
