@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useParams,
+  // useParams,
 } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
@@ -14,11 +14,11 @@ import Triane from './Programers/Triane';
 import Shaik from './Programers/Shaik';
 
 function App() {
-  const [title, setTitle] = useState('');
+  // const [title, setTitle] = useState('');
   const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(false);
-  const [data, setData] = useState([]);
-  let { id } = useParams();
+  // const [error, setError] = useState(false);
+
+  // let { id } = useParams();
   return (
     <Router>
       <Nav />
@@ -26,16 +26,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={
-              <Home
-                title={title}
-                setTitle={setTitle}
-                error={error}
-                setError={setError}
-                data={data}
-                setData={setData}
-              />
-            }
+            element={<Home videos={videos} setVideos={setVideos} />}
           />
           <Route path="/About" element={<About />} />
           <Route path="Shaik" element={<Shaik />} />

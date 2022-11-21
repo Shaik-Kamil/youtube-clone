@@ -1,7 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 import { useParams } from 'react-router-dom';
-export default function Videos() {
+export default function Video() {
   const { id } = useParams();
   const opts = {
     videoId: id,
@@ -10,6 +10,8 @@ export default function Videos() {
     autoplay: true,
     playsInline: true,
     aspectRatio: '16:9',
+    allow: 'autoplay',
+    allowFullScreen: true,
   };
   return (
     <div>
