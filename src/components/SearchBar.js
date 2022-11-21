@@ -1,60 +1,42 @@
 import { useState } from 'react';
 import { searchVideo } from './Fetch';
+import Video from './Video';
 
 // let key = process.env.REACT_APP_API_KEY;
-export default function SearchBar({ setVideos }) {
-  const [title, setTitle] = useState('');
-  // const [videos, setVideos] = useState([]);
-  // const [error, setError] = useState(false);
-
-  // function searchForm(searchInput) {
-  //   fetch(
-  //     `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${searchInput}&type=video&part=snippet`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setVideos(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setError(true);
-  //     });
-  // }
-
+export default function SearchBar({ videos }) {
+  const [search, setSearch] = useState('');
+  
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     const getSubmit = e.target.value;
-    setTitle(getSubmit);
-    // searchForm(title);
-    // e.target.reset(); // resets the form
+    if(getSubmit !== ''){
+      searchVideo(search)
+      setSearch('')
+    }
   }
-
-  // function handleChange(e) {
-  //   const getTitle = e.target.value;
-  //   setTitle(getTitle);
-  // }
 
   return (
     <section>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
-          Enter search here
           <input
             type="text"
             name="search-Input"
-            // onChange={handleChange}
-            value={title}
-            onChange={handleSubmit}
+            placeholder='Enter search here'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           ></input>
         </label>
         <button
           type="submit"
           value="submit"
-          onClick={() => searchVideo(setTitle, setVideos)}
         >
           Search
         </button>
       </form>
+      {videos?.map(e =>{
+        return <Video key={e.id}/>
+      })}
     </section>
   );
 }
