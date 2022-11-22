@@ -17,10 +17,8 @@ export function showApi() {
   ).then((res) => res.json());
 }
 
-export function searchVideo(searchInput, setVideo) {
+export function searchVideo(searchInput) {
   return fetch(
     `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchInput}&key=${key}`
   ).then((res) => res.json())
-   .then((data) => setVideo(data.item))
-   .catch((error) => console.log(error))
 }

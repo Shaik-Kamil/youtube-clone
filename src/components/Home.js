@@ -6,14 +6,11 @@ import './Home.css';
 import Video from './Video';
 
 export default function Home({
-  // title,
-  // setTitle,
-  // error,
-  // setError,
   search,
   videos,
   setVideos,
 }) {
+
   return (
     <div>
       <SearchBar videos={videos} setVideos={setVideos} />
@@ -22,17 +19,20 @@ export default function Home({
       (videos?.map((video) => {
         //That question mark is weird but it gets rid of the red. 
         return (
-          <div key={video.id.videoId} className='video'>
-          <Link to={`/video/${video.id.videoId}`}>
-          <img src={video.snippet.thumbnails.high.url} alt={search}/>
-          <p>{video.snippet.title}</p>
-          </Link>
-          </div>
+          // <div key={video.id.VideoId} className='video'>
+          // <Link to={`/video/${video.id.videoId}`}>
+          // <img src={video.snippet.thumbnails.high.url} alt={search}/>
+          // <p>{video.snippet.title}</p>
+          // </Link>
+          // </div>
+          <div></div>
+          //BREAK THIS APART
         )
         })
       )}
       </div>
     </div>
+
   );
 }
 //this needs to be inside of a div or something
