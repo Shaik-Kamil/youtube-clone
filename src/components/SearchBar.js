@@ -1,24 +1,23 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { searchVideo } from './Fetch';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function SearchBar({ videos, setVideos }) {
-  const [search, setSearch] = useState('');
-  
+export default function SearchBar({ videos, setVideos, search, setSearch }) {
+  let navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     const getSubmit = e.target.value;
-    if(getSubmit !== ''){
+    if (getSubmit !== '') {
       searchVideo(search)
-      .then((data) => {
-        setVideos(data.items)
-        console.log(data)
-      })
-      .catch((error) => console.log(error))
-      setSearch('')
+        .then((data) => {
+          setVideos(data.items);
+          navigate('/video');
+        })
+        .catch((error) => console.log(error));
+      setSearch('');
     }
   }
-  
+
   return (
     <section>
       <form onSubmit={handleSubmit}>
@@ -26,31 +25,15 @@ export default function SearchBar({ videos, setVideos }) {
           <input
             type="text"
             name="search-Input"
-            placeholder='Enter search here'
+            placeholder="Enter search here"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           ></input>
         </label>
-        <button
-          type="submit"
-          value="submit"
-        >
+        <button type="submit" value="submit">
           Search
         </button>
       </form>
-      {(videos?.map((video, index) => {
-        return (
-          <div key={index} className='video'>
-          <Link to={`/video/${video.id.videoId}`}>
-          <img src={video.snippet.thumbnails.high.url} alt={search}/>
-          <p>{video.snippet.title}</p>
-          </Link>
-          </div>
-        )
-        })
-      )}
     </section>
-
-);
-
+  );
 }
