@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  // useParams,
 } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
@@ -14,11 +13,9 @@ import Triane from './Programers/Triane';
 import Shaik from './Programers/Shaik';
 
 function App() {
-  // const [title, setTitle] = useState('');
+ 
   const [videos, setVideos] = useState([]);
-  // const [error, setError] = useState(false);
-
-  // let { id } = useParams();
+ 
   return (
     <Router>
       <Nav />

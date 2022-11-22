@@ -1,60 +1,61 @@
 import { useState } from 'react';
-import { searchVideo } from './Fetch';
+import { searchVideo, showApi } from './Fetch';
+import Video from './Video';
+import { Link } from 'react-router-dom';
 
 // let key = process.env.REACT_APP_API_KEY;
-export default function SearchBar({ setVideos }) {
-  const [title, setTitle] = useState('');
-  // const [videos, setVideos] = useState([]);
-  // const [error, setError] = useState(false);
-
-  // function searchForm(searchInput) {
-  //   fetch(
-  //     `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${searchInput}&type=video&part=snippet`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setVideos(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setError(true);
-  //     });
-  // }
-
+export default function SearchBar({ videos, setVideos }) {
+  const [search, setSearch] = useState('');
+  // let [vid, setVid] = useState({})
+  
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     const getSubmit = e.target.value;
-    setTitle(getSubmit);
-    // searchForm(title);
-    // e.target.reset(); // resets the form
+    if(getSubmit !== ''){
+      searchVideo(search)
+      .then((data) => {
+        setVideos(data.items)
+        console.log(data)
+      })
+      .catch((error) => console.log(error))
+      setSearch('')
+    }
   }
-
-  // function handleChange(e) {
-  //   const getTitle = e.target.value;
-  //   setTitle(getTitle);
-  // }
-
+  
+// console.log(showApi())
   return (
     <section>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
-          Enter search here
           <input
             type="text"
             name="search-Input"
-            // onChange={handleChange}
-            value={title}
-            onChange={handleSubmit}
+            placeholder='Enter search here'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           ></input>
         </label>
         <button
           type="submit"
           value="submit"
-          onClick={() => searchVideo(setTitle, setVideos)}
         >
           Search
         </button>
       </form>
+      {(videos?.map((video) => {
+        //That question mark is weird but it gets rid of the red. 
+        return (
+          <div key={video.id.VideoId} className='video'>
+          <Link to={`/video/${video.id.videoId}`}>
+          <img src={video.snippet.thumbnails.high.url} alt={search}/>
+          <p>{video.snippet.title}</p>
+          </Link>
+          </div>
+        )
+        })
+      )}
     </section>
-  );
+
+);
+
 }

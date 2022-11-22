@@ -19,6 +19,6 @@ export function showApi() {
 
 export function searchVideo(searchInput) {
   return fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${searchInput}&type=video&part=snippet`
-  ).then((res) => res.json());
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchInput}&key=${key}`
+  ).then((res) => res.json())
 }
