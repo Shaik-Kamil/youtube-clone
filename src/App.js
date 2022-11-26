@@ -8,6 +8,7 @@ import About from './components/About';
 import Triane from './Programers/Triane';
 import Shaik from './Programers/Shaik';
 import ListVideos from './components/ListVideos';
+import PageNotFound from './404/PageNotFound';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -42,6 +43,7 @@ function App() {
             }
           />
           <Route path="/video/:id" element={<Video videos={videos} />} />
+          <Route path="*" element={<PageNotFound/>} />
         </Routes>
       </main>
     </Router>
