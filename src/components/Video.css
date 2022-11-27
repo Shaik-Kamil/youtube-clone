@@ -1,0 +1,13 @@
+.thumbs{
+   display: grid;
+   grid-template-columns: 2fr 2fr;
+   text-align: center;
+   /* Cant figure out how to divide them. Check with Shaik */
+}
+
+.picture{
+   display: flex;
+   justify-content: center;
+   margin-top: 2%;
+}
+

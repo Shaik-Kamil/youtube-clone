@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 import { useParams } from 'react-router-dom';
+import './Video.css'
 export default function Video() {
   const { id } = useParams();
   const opts = {
@@ -14,12 +15,12 @@ export default function Video() {
     allowFullScreen: true,
   };
   return (
-    <div>
+    <div className='picture'>
       <section>
       <div>
       <YouTube videoId={id} opts={opts} />
       <section>
-        <h1>{id.items ? id.snippet.title : "loading..."}</h1>
+        <h1>{id.title ? id.snippet.title : null}</h1>
       </section>
     </div>
       </section>

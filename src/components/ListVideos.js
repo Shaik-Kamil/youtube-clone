@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Video.css'
 
 function ListVideos({ videos, search }) {
   return (
-    <section>
+    <section className='thumbs'>
       {videos.map((video, index) => {
         return (
           <div key={index} className="video">
