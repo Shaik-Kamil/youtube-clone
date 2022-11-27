@@ -2,7 +2,7 @@
 import { searchVideo } from './Fetch';
 import { useNavigate } from 'react-router-dom';
 
-export default function SearchBar({ videos, setVideos, search, setSearch }) {
+export default function SearchBar({setVideos, search, setSearch }) {
   let navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function SearchBar({ videos, setVideos, search, setSearch }) {
   }
 
   return (
-    <section>
+    <section className='search-bar'>
       <form onSubmit={handleSubmit}>
         <label>
           <input
@@ -31,7 +31,7 @@ export default function SearchBar({ videos, setVideos, search, setSearch }) {
           ></input>
         </label>
         <button type="submit" value="submit">
-          Search
+        <img src='https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-512.png'/>
         </button>
       </form>
     </section>
