@@ -21,8 +21,6 @@
 }
 
 .search-bar {
-  width: 100%;
-  max-width: 500px;
   background: rgba(255, 255, 255, 0.665);
   display: flex;
   align-items: center;
@@ -54,6 +52,6 @@
   height: 40px;
 }
 
-::placeholder{
+.search-bar ::placeholder{
   color:whitesmoke
 }
