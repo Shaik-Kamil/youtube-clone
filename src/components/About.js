@@ -1,8 +1,6 @@
 import React from 'react';
 import './About.css';
 import { Link } from 'react-router-dom';
-import Shaik from '../Programers/Shaik';
-import Triane from '../Programers/Triane';
 
 export default function About() {
   return (
