@@ -2,9 +2,9 @@
 
 let key = process.env.REACT_APP_API_KEY;
 
-export function showApi() {
+export function showApi(id) {
   return fetch(
-    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id={id}&key=${key} `
+    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${key} `
   ).then((res) => res.json());
 }
 

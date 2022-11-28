@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 import { useParams } from 'react-router-dom';
 import './Video.css'
 import { showApi } from './Fetch';
-export default function Video() {
+export default function Video({videos}) {
   const { id } = useParams();
   const [like, setLike] = useState(0)
   const [dislike, setDislike] = useState(0)
@@ -22,7 +22,7 @@ export default function Video() {
       .catch((err) => {
 
       });
-  }, [id]);
+  }, []);
 
   const opts = {
     videoId: id,
@@ -44,16 +44,22 @@ console.log(show)
       <div>
       <YouTube videoId={id} opts={opts} />
       <section>
-        <h1>{show.title}</h1>
-        <p>{show.channelTitle}</p>
+      {show.map((video) => {
+        return (
+          <div>
+              <p>{video.snippet.title}</p>
+          </div>
+        );
+      })}
+    
         {/* Does not work with T or accessing with ID. Tried using its own data param but might be understanding it wrong */}
       </section>
       <br/>
       <hr/>
-      <div className='likes'>
-      <button onClick={()=>{setLike(like + 1)}}> ⬆Like {like}</button>
+      <div className='votes'>
+      <button className='likes' onClick={()=>{setLike(like + 1)}}> ⬆Like {like}</button>
       &nbsp;
-      <button onClick={()=>{setDislike(dislike + 1)}}> ⬇ Dislike {dislike}</button>
+      <button className='dislikes' onClick={()=>{setDislike(dislike + 1)}}> ⬇ Dislike </button>
       </div>
     </div>
     <form className='commentForm' onSubmit={(e)=>{
