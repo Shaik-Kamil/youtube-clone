@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 import { useParams } from 'react-router-dom';
 import './Video.css';
 import { showApi } from './Fetch';
-export default function Video({ videos }) {
+export default function Video() {
   const { id } = useParams();
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
@@ -13,6 +13,11 @@ export default function Video({ videos }) {
   });
   const [comments] = useState([]);
   const [show, setShow] = useState([]);
+  const [hide, setHide] = useState(false)
+
+  function hideMe(){
+    setHide(!hide)
+  }
 
   useEffect(() => {
     showApi(id)
@@ -46,28 +51,21 @@ export default function Video({ videos }) {
           <section>
             {show.map((video) => {
               return (
-                <div>
-                  <h1>{video.snippet.title}</h1>
-                  <h2>{video.snippet.channelTitle}</h2>
-                </div>
-              );
-            })}
-          </section>
-          <br />
-          <hr />
-          <div className="votes">
-            <button
-              className="likes"
+            <main>
+            {/* Votes */}
+            <section className='votes'>
+                <div  className="likes">
+             <button
               onClick={() => {
                 setLike(like + 1);
               }}
-            >
+              >
               {' '}
               ⬆Like {like}
             </button>
-            &nbsp;
+            </div>
+            <div className='dislikes'>
             <button
-              className="dislikes"
               onClick={() => {
                 setDislike(dislike + 1);
               }}
@@ -75,7 +73,34 @@ export default function Video({ videos }) {
               {' '}
               ⬇ Dislike{' '}
             </button>
-          </div>
+            </div>
+            </section>
+            {/* Headings */}
+            <section className='info'>
+              <h2>{video.snippet.title}</h2>
+              <h1>{video.snippet.channelTitle}</h1>
+              </section>
+            </main>
+              );
+            })}
+          </section>
+          {/* Toggle Section */}
+          <section>
+            {show.map((video) => {
+              return (
+                <section className='info'>
+                  <button className='hidden' onClick={() => {hideMe()}}>
+                    {!hide ? "More..." : "Less..."}</button>
+                    {hide ? <p><span style={{ fontWeight: 'bold' }}>Description:</span> 
+                    <br/>
+                    <br/>
+                    {video?.snippet?.description}</p>: null}
+                </section>
+              );
+            })}
+          </section>
+          <hr />
+          
         </div>
         <form
           className="commentForm"
@@ -93,8 +118,9 @@ export default function Video({ videos }) {
           <input
             id="user"
             type="text"
+            value={userComment.user}
             placeholder="Enter Name Here"
-            onChange={(e) =>
+            onChange={(e) => 
               setUserComment({ ...userComment, [e.target.id]: e.target.value })
             }
           />
@@ -105,26 +131,30 @@ export default function Video({ videos }) {
           <input
             id="comment"
             type="text"
+            value={userComment.comment}
             placeholder="Enter Comment Here"
             onChange={(e) =>
-              setUserComment({ ...userComment, [e.target.id]: e.target.value })
+              setUserComment({ ...userComment, [e.target.id]: e.target.value }
+              )
             }
           />
           &nbsp;
           <button type="submit">Submit</button>
         </form>
       </section>
-      <div>
+    <aside className='box'>
         <ul>
-          {comments.map((el) => {
+          {comments.map(({user, comment}) => {
             return (
-              <li>
-                {el.user}: {el.comment}
-              </li>
+             <li>
+             <h3>{user}:</h3>
+             <p>{comment}</p>
+             </li>
             );
           })}
+          {/* This is laying over comments */}
         </ul>
-      </div>
+    </aside>
     </div>
   );
 }

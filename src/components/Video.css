@@ -1,18 +1,24 @@
-.thumbs{
-   display: grid;
-   grid-template-columns: 2fr 2fr;
-   text-align: center;
-   /* Cant figure out how to divide them. Check with Shaik */
-}
-
 .picture{
    display: flex;
    justify-content: center;
    margin-top: 2%;
 }
 
+
+.thumbs{
+   display: grid;
+   grid-template-columns: 2fr 2fr 2fr;
+   text-align: center;
+}
+
 .commentForm{
-   color:black
+   color:black;
+   display: grid; 
+   grid-template-rows: repeat(2, 1fr);
+}
+
+.box{
+   border-style: groove 2px black;
 }
 
 .vote{
@@ -35,3 +41,48 @@
     bottom: 0;
     left: 0;
 }
+
+.info{
+   display: flex;
+   justify-content: space-between;
+   font-family: Roboto;
+}
+.votes{
+
+      display: flex;
+      justify-content:end;
+      font-family: Roboto;
+}
+
+.hidden{
+   display: block; 
+   background:none;
+   border: none; 
+   margin-bottom: 10px;
+}
+
+.likes button:hover{
+   color:greenyellow;
+}
+.likes button{
+   border-radius: 20px 0px 0px 20px;
+}
+
+
+.dislikes button{
+   border-radius: 0px 20px 20px 0px;
+}
+ .dislikes button:hover {
+  color: red;
+}
+
+ .votes  button:hover{
+ background-color: black
+}
+
+button{
+   background-color: rgba(0, 255, 255, 0.198);
+}
+
+
+
