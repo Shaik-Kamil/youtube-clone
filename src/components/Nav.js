@@ -2,10 +2,12 @@ import React from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
-export default function Nav({ videos, setVideos, search, setSearch }) {
+import ListVideos from './ListVideos';
+export default function Nav({videos, setVideos, search, setSearch }) {
   return (
     <nav className="NavBar">
-      <Link>
+      <Link  to={`/video/`}>
+        {/* FIX THIS */}
         <img
           src="https://www.freeiconspng.com/thumbs/youtube-logo-png/youtube-logo-drawn-7.png"
           alt="youtube-log"
