@@ -9,24 +9,29 @@ import Triane from './Programers/Triane';
 import Shaik from './Programers/Shaik';
 import ListVideos from './components/ListVideos';
 import PageNotFound from './404/PageNotFound';
+import Login from '../src/Settings/Login'
 
 function App() {
   const [videos, setVideos] = useState([]);
   const [search, setSearch] = useState('');
-
+  const [showNav, setShowNav] = useState(true)
   return (
     <Router>
-      <Nav
-        videos={videos}
-        setVideos={setVideos}
-        search={search}
-        setSearch={setSearch}
-      />
-      <main>
+    {showNav && 
+     <Nav
+     videos={videos}
+     setVideos={setVideos}
+     search={search}
+     setSearch={setSearch}
+     />
+    }
+
         <Routes>
+        <Route path="/" element={<Login funcNavi={setShowNav}/>}/>
+        {/* Added a feature that makes home a log */}
           <Route
-            path="/"
-            element={<Home videos={videos} setVideos={setVideos} />}
+            path="/home"
+            element={<Home videos={videos} setVideos={setVideos}/>}
           />
           <Route path="/About" element={<About />} />
           <Route path="Shaik" element={<Shaik />} />
@@ -45,7 +50,6 @@ function App() {
           <Route path="/video/:id" element={<Video videos={videos} />} />
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
-      </main>
     </Router>
   );
 }

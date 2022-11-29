@@ -1,0 +1,151 @@
+/* THIS IS THE LOG IN INFO */
+
+  /* 1 rem = 16 px */
+
+  :root{
+    --background: white;
+    --text-primary: black;
+    --text-secondary:purple;
+    --accent: violet;
+    --border: grey;
+    --form-bg: #fff;
+  
+  }
+  
+  [data-theme='dark']{
+    --background: black;
+    --text-primary: white;
+    --text-secondary:var(--text-secondary);
+    --accent: violet;
+    --border: grey;
+    --form-bg: black;
+  }
+  
+  .signUp a{
+    color: var(--text-secondary)
+  }
+  
+  .signUp{
+    display: flex;
+    padding-top: 10%;
+    background-color: var(--background);
+    color: var(--text-primary);
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    font-size: .8rem;
+    transition: all .5s;
+  }
+  
+  .login h1{
+    text-align: center;
+    margin: -6rem 0 2rem;
+    font-size: 48px;
+  }
+  
+  .signUp h2{
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .theme-toggle{
+    text-align: center;
+  }
+  
+  .theme-toggle i{
+    cursor: grabbing;
+    font-size: 2rem;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    width: 300px;
+    margin:auto;
+    box-shadow: 0px 0px 12px var(--border);
+    border-radius: 8px;
+    background-color: var(--form-bg);
+  }
+  
+  .top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .top i{
+    font-size: 1rem;
+  }
+  
+  .divider{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--text-primary);
+    line-height: .1rem;
+    margin: 2rem 0;
+  }
+  
+  .signUp span {
+    padding: 0 10px;
+    background-color: var(--form-bg);
+  }
+  
+  .signUp form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signUp label {
+    margin: 8px 0;
+    font-weight: 600;
+  }
+  
+  .signUp input {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--text-primary);
+  }
+  
+  .remember {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  input[type=checkbox]:checked {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* might delete */
+  
+  .remember p {
+    padding-left: 8px;
+  }
+  
+  
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: .8rem;
+  }
+  
+  .create {
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: grabbing;
+  }
+  
+  @media screen and (max-width:478px) {
+    .login {
+      width: 95%;
+    }
+  }
